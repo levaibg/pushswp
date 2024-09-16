@@ -14,27 +14,47 @@
 
 char	ft_check(char *av)
 {
+	int i;
+	i = 0;
+	int zero;
+	zero = 0;
+
+	if(checknu(av) == 1)
+		ft_printf("error");
 	
+		
+
 }
 
 int	checknu(char *av)
 {
 int i;
-	i = 0;
+	i = 1;
 
 	while(av[i])
 	{
-		if(!(av[i] => 0 && av[i] =< 9))
+		if((av[i] == '-' || av[i] == '+') && av[i + 1] != "\0")
+			i++;
+		while(!(av[i] => 0 && av[i] =< 9))
+		{
+			i++;
+		}
+		
+		else
 			return(0);
-		else if(!(av[i] == '-' || av[i] == '+'))
-
 	}
+	return (1);
 
 }
 int	checko(char *av)
 {
 	int i;
 	i = 0;
+	while(av[i])
+	{
+		if(av[i] == '0' && (av[i + 1] >= '0' && av[i + 1]<= '9'))
+		av[i] = 
+	}
 
 
 
