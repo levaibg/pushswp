@@ -58,3 +58,25 @@ int	checko(char *av)
 
 
 }
+
+static int	checkdup(char **av)
+{
+	int i;
+	int j;
+
+	i = 1;
+
+	while (while(av[i]))
+	{
+		j = 1;
+		while(av[j])
+		{
+			if(i != j && ft_nbrcomp(av[i],av[j]) == 0)
+			return(0);
+		j++;
+		}
+		i++;
+	}
+	return(1);
+	
+}

@@ -46,3 +46,19 @@ int	ft_isdigit(int c)
 	else
 		return (0);
 }
+
+int ft_nbrcomp(char *s1, char *s2)
+{
+    int i;
+    int j;
+    
+    i = 0;
+    j = 0;
+
+    while(s1[i] != '\0' && s2[j] != '\0' && s1[i] == s2[j])
+    {
+        i++;
+        j++;
+    }
+    return((char)s1[i] - (char)s2[j]);
+}
