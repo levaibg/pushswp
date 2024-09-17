@@ -21,7 +21,7 @@ typedef struct s_struct
 {
 	int		index;
 	int		value;
-	struct s_struct *next;
+	struct s_struct *•;
 } t_stack;
 
 typedef struct s_pushswap
@@ -35,6 +35,8 @@ typedef struct s_pushswap
 # include <stdio.h>
 # include <fcntl.h>
 # include <stdlib.h>
+# include <stdbool.h>
+# include <limits.h>
 
 void	pa(t_stack *ps);
 void	pb(t_stack *ps);

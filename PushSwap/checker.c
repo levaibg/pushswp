@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.c"
+#include "pushswap.h"
 
 char	ft_check(char *av)
 {
@@ -19,7 +19,7 @@ char	ft_check(char *av)
 	int zero;
 	zero = 0;
 
-	if(checknu(av) == 1)
+	if(checknu(av) != 1)
 		ft_printf("error");
 	
 		
@@ -28,7 +28,7 @@ char	ft_check(char *av)
 
 int	checknu(char *av)
 {
-int i;
+	int i;
 	i = 1;
 
 	while(av[i])
@@ -52,10 +52,9 @@ int	checko(char *av)
 	i = 0;
 	while(av[i])
 	{
-		if(av[i] == '0' && (av[i + 1] >= '0' && av[i + 1]<= '9'))
+		if(av[i] == '0' && (av[i]))
 		av[i] = 
 	}
-
 
 
 }
