@@ -6,7 +6,7 @@
 /*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 14:21:12 by lloginov          #+#    #+#             */
-/*   Updated: 2024/09/16 14:22:30 by lloginov         ###   ########.fr       */
+/*   Updated: 2024/09/19 13:00:54 by lloginov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,41 @@ int ft_nbrcomp(char *s1, char *s2)
         j++;
     }
     return((char)s1[i] - (char)s2[j]);
+}
+
+char	*ft_split(char *src, char car)
+{
+	int	i;
+	int	j;
+	char *str;
+
+	i = 0;
+	j= 0;
+
+	if(ft_strchr(src, car) == NULL)
+		return(src);
+	while(src[j] != car &&  src[j] != '\0')
+		j++;
+	str = malloc(sizeof(char) * (j + 1));
+	if (!str)
+		return (NULL);
+	while(i < j)
+	{
+		str[i] = src[i];
+		i++;
+	}
+	free(src);
+	str[i] = '\0';
+	return (str);
+}
+
+char *ft_strchr(const char *s, int c) 
+{
+    while (*s) 
+	{
+        if (*s == (char)c) 
+			return (char *)s;
+        s++;
+    }
+    return (c == '\0') ? (char *)s : NULL;
 }

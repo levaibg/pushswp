@@ -6,7 +6,7 @@
 /*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 00:01:41 by lloginov          #+#    #+#             */
-/*   Updated: 2024/09/16 14:20:58 by lloginov         ###   ########.fr       */
+/*   Updated: 2024/09/19 13:00:54 by lloginov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@ char	ft_check(char *av)
 	int zero;
 	zero = 0;
 
-	if(checknu(av) != 1)
-		ft_printf("error");
+	if(ft_isalnum(av[i]) == 1)
+		return(1);	
+	else if(av[i]== )
+	
 	
 		
 
@@ -41,9 +43,9 @@ int	checknu(char *av)
 		}
 		
 		else
-			return(0);
+			return(1);
 	}
-	return (1);
+	return (0);
 
 }
 int	checko(char *av)
@@ -72,11 +74,14 @@ static int	checkdup(char **av)
 		while(av[j])
 		{
 			if(i != j && ft_nbrcomp(av[i],av[j]) == 0)
-			return(0);
+			return(1);
 		j++;
 		}
 		i++;
 	}
-	return(1);
+	return(0);
 	
 }
+
+
+

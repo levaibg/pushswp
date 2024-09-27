@@ -6,7 +6,7 @@
 /*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 15:49:08 by lloginov          #+#    #+#             */
-/*   Updated: 2024/09/16 14:24:39 by lloginov         ###   ########.fr       */
+/*   Updated: 2024/09/19 13:00:54 by lloginov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct s_struct
 typedef struct s_pushswap
 {
 	t_stack *a;
-	t_stack *b;
+	t_stack *b;	
 }		t_pushswap;
 
 #include "stdio.h"

@@ -2,6 +2,12 @@ SRCS =  push.c/
 		pushwap.c/
 		swap.c/
 		swap-push.c/
+		checker.c/
+		reverserotate.c/
+		rotate.c/
+		swap-push.c/
+		swap.c/
+		utils.c/
 		
 		
 

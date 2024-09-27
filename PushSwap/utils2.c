@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pushswap.c                                         :+:      :+:    :+:   */
+/*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/26 15:57:32 by lloginov          #+#    #+#             */
-/*   Updated: 2024/09/17 20:01:00 by lloginov         ###   ########.fr       */
+/*   Created: 2024/09/19 12:08:34 by lloginov          #+#    #+#             */
+/*   Updated: 2024/09/19 12:09:40 by lloginov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
+#include <pushswap.h>
 
 
-int	main(int ac, char **av)
+int	ft_isdigit(int c)
 {
-	
-	if(ac  == 1 || (ac == 2 && != av[1][0]))
-		return(0);
-	if(ac == 2)
-		av = ft_split(av[1], " ");
-	if(ac > 2)
-		ft_check(av[1]);
-
-
+	if (c >= '0' && c <= '9')
+		return (1);
+	else
+		return (0);
 }
