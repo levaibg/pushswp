@@ -6,7 +6,7 @@
 /*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 01:38:49 by lloginov          #+#    #+#             */
-/*   Updated: 2024/09/12 20:19:47 by lloginov         ###   ########.fr       */
+/*   Updated: 2024/09/30 01:35:00 by lloginov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_stack *beforelast(t_pushswap *ps)
 	return(tmp);
 }
 
-void	reversra(t_pushswap *ps)
+void	reversra(t_pushswap *ps, int n)
 {
 	t_stack *tmp;
 	t_stack *last;
@@ -34,7 +34,8 @@ void	reversra(t_pushswap *ps)
 	tmp -> next = NULL;
 	last->next = ps->a;
     ps->a = last;
-	ft_printf("ra");
+	if(n == 0)
+		ft_printf("ra");
 }
 
 t_stack *beforelast2(t_pushswap *ps)
@@ -49,7 +50,7 @@ t_stack *beforelast2(t_pushswap *ps)
 	return(tmp);
 }
 
-void	reversrb(t_pushswap *ps)
+void	reversrb(t_pushswap *ps,int n)
 {
 	t_stack *tmp;
 	t_stack *last;
@@ -59,12 +60,13 @@ void	reversrb(t_pushswap *ps)
 	tmp -> next = NULL;
 	last->next = ps->b;
     ps->b = last;
-	ft_printf("rb");
+	if(n == 0)
+		ft_printf("rb");
 }
 
 void	rrr(t_pushswap *ps)
 {
-	reversra(ps);
-	reversrb(ps);
+	reversra(ps, 1);
+	reversrb(ps, 1);
 	ft_printf("rrr");
 }

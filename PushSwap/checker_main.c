@@ -6,10 +6,21 @@
 /*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 18:08:23 by lloginov          #+#    #+#             */
-/*   Updated: 2024/09/17 18:10:06 by lloginov         ###   ########.fr       */
+/*   Updated: 2024/09/30 02:21:37 by lloginov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <pushwap.h>
 
 
+
+t_stack	*fill_stack_a(char **av, int n)
+{
+	char **nb;
+	
+	while(av[i])
+	{
+		if(n != 0)
+			tab = ft_split(av[i],' ');
+	}
+}
