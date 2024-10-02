@@ -6,7 +6,7 @@
 /*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 22:01:54 by lloginov          #+#    #+#             */
-/*   Updated: 2024/09/30 23:48:20 by lloginov         ###   ########.fr       */
+/*   Updated: 2024/10/02 17:58:12 by lloginov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,3 +38,14 @@ void	ft_lstadd_back(t_stack **lst, t_stack *new)
 }
 
 
+t_stack	*ft_lstnew(int n)
+{
+	t_stack *f;
+
+	f = malloc(sizeof(t_stack));
+	if(!f)
+		return (NULL);
+	f ->value = n;
+	f -> next = NULL;
+	return (f);
+}

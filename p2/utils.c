@@ -6,7 +6,7 @@
 /*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 21:43:30 by lloginov          #+#    #+#             */
-/*   Updated: 2024/10/01 00:34:21 by lloginov         ###   ########.fr       */
+/*   Updated: 2024/10/02 19:08:07 by lloginov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,22 @@ long    ft_atol(char *av)
 	return (number * sign);
 }
 
-int	ft_isdigit(int c)
+ int	ft_isdigit2(char *num)
 {
-	if (c <= 0 && c >= 9)
-		return (1);
-	else
-		return (0);
+	int	i;
+
+	i = 0;
+	if (num[0] == '-')
+		i++;
+	while (num[i])
+	{
+		if (ft_isdigit(num[i]) == 1)
+			return (1);
+		i++;
+	}
+	return (0);
 }
+	
 
 int ft_nbrcomp(char *s1, char *s2)
 {
@@ -82,7 +91,7 @@ static int	checkdup(char **av)
 
 	i = 1;
 
-	while (while(av[i]))
+	while (av[i])
 	{
 		j = 1;
 		while(av[j])

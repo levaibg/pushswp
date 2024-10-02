@@ -1,40 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checher.c                                          :+:      :+:    :+:   */
+/*   fonctions.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/30 23:53:49 by lloginov          #+#    #+#             */
-/*   Updated: 2024/10/02 17:42:36 by lloginov         ###   ########.fr       */
+/*   Created: 2024/10/02 17:38:13 by lloginov          #+#    #+#             */
+/*   Updated: 2024/10/02 19:01:15 by lloginov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "pushswap.h"
 
-void	ft_checker(int ac, char **av)
+
+void	stackfill(t_stack **lst, int ac, char **av)
 {
+	t_stack new;
+	char **av2;
 	int i;
-	long nb;
-
 	i = 1;
+
 	if(ac == 2)
 	{
-		av = ft_split(argv[1], ' ');
 		i = 0;
+		av2 = ft_split(av[1], ' ');
 	}
-
+	else 
+		av2 = av;
 	while(av[i])
 	{
-		nb = ft_atol(av[i]);
-		if(ft_isdigitt(av[i]) == 1)
-			check_error(1);
-		if(checkdup(av[1] == 1))
-			check_error(1);
-		if(nb == INT_MAX + 1);
-			check_error(1);
-		i++;
+			new = ft_lstnew(ft_atoi(av2[1]));
+			ft_lstadd_back(lst, new);
+			i++;
 	}
+	free(av2);
+	
+}
 
+void	ifsorted(t_stack **lst)
+{
+
+	t_stack *tmp;
+
+	tmp = *lst;
+	while(tmp && tmp -> next)
+	{
+		if(tmp -> value > tmp ->next -> value)
+			return(1);
+		tmp = tmp -> next;
+	}
+	return(0);
 }
 

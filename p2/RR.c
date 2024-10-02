@@ -6,7 +6,7 @@
 /*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 21:34:19 by lloginov          #+#    #+#             */
-/*   Updated: 2024/09/30 23:48:20 by lloginov         ###   ########.fr       */
+/*   Updated: 2024/10/02 19:35:33 by lloginov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	reversra(t_pushswap *ps, int n)
 	last->next = ps->a;
     ps->a = last;
 	if(n == 0)
-		ft_printf("ra");
+		ft_printf("rra\n");
 }
 
 t_stack *beforelast2(t_pushswap *ps)
@@ -62,12 +62,12 @@ void	reversrb(t_pushswap *ps,int n)
 	last->next = ps->b;
     ps->b = last;
 	if(n == 0)
-		ft_printf("rb");
+		ft_printf("rrb\n");
 }
 
 void	rrr(t_pushswap *ps)
 {
 	reversra(ps, 1);
 	reversrb(ps, 1);
-	ft_printf("rrr");
+	ft_printf("rrr\n");
 }

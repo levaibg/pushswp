@@ -6,7 +6,7 @@
 /*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 21:37:01 by lloginov          #+#    #+#             */
-/*   Updated: 2024/09/30 23:48:20 by lloginov         ###   ########.fr       */
+/*   Updated: 2024/10/02 19:35:17 by lloginov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ra(t_pushswap *ps, int n)
 	last->next = tmp;
 	tmp->next = NULL;
 	if(n == 0)
-		ft_printf("ra");
+		ft_printf("ra\n");
 }
 
 void	rb(t_pushswap *ps, int n)
@@ -39,12 +39,12 @@ void	rb(t_pushswap *ps, int n)
 	last->next = tmp;
 	tmp->next = NULL;
 	if(n == 0)
-		ft_printf("rb");
+		ft_printf("rb\n");
 }
 
 void rr(t_pushswap *ps)
 {
 	ra(ps, 1);
 	rb(ps, 1);
-	ft_printf("rr");
+	ft_printf("rr\n");
 }

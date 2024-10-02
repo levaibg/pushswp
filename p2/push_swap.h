@@ -6,7 +6,7 @@
 /*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 21:25:32 by lloginov          #+#    #+#             */
-/*   Updated: 2024/10/01 00:29:36 by lloginov         ###   ########.fr       */
+/*   Updated: 2024/10/02 19:01:51 by lloginov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ typedef struct s_struct
 {
 	int		index;
 	int		value;
-	struct s_struct;
+	struct s_struct *target;
+	struct s_stack	*next;
 } t_stack;
 
 typedef struct s_pushswap
