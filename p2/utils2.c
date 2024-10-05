@@ -6,16 +6,16 @@
 /*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 15:28:05 by lloginov          #+#    #+#             */
-/*   Updated: 2024/10/02 15:31:16 by lloginov         ###   ########.fr       */
+/*   Updated: 2024/10/04 23:48:53 by lloginov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
+#include "push_swap.h"
 
 
-void    check_error(int agr)
+void    check_error(long int n)
 {
-    if(n == 1)
+    if (n == 1 || n == INT_MAX + 1)
     {
         ft_printf("Error");
         exit(0);

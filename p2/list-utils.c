@@ -6,7 +6,7 @@
 /*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 22:01:54 by lloginov          #+#    #+#             */
-/*   Updated: 2024/10/02 17:58:12 by lloginov         ###   ########.fr       */
+/*   Updated: 2024/10/05 01:26:09 by lloginov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_lstadd_front(t_stack **lst, t_stack *new)
 		*lst = new;
 }
 
-t_stack	ft_lstlast(t_stack *lst)
+t_stack	*ft_lstlast(t_stack *lst)
 {
 	while(lst->next)
 		lst = lst->next;
@@ -45,7 +45,19 @@ t_stack	*ft_lstnew(int n)
 	f = malloc(sizeof(t_stack));
 	if(!f)
 		return (NULL);
-	f ->value = n;
-	f -> next = NULL;
+	f->value = n;
+	f->next = NULL;
 	return (f);
+}
+
+void	ft_freelst(t_stack **lst)
+{
+	t_stack	*tmp;
+
+	while ((*lst) != NULL)
+	{
+		tmp = (*lst)->next;
+		free(*lst);
+		(*lst) = tmp;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 23:53:49 by lloginov          #+#    #+#             */
-/*   Updated: 2024/10/02 17:42:36 by lloginov         ###   ########.fr       */
+/*   Updated: 2024/10/05 01:38:37 by lloginov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,23 @@ void	ft_checker(int ac, char **av)
 {
 	int i;
 	long nb;
+	char **args;
 
 	i = 1;
 	if(ac == 2)
 	{
-		av = ft_split(argv[1], ' ');
+		args = ft_split(av[1], ' ');
 		i = 0;
 	}
-
 	while(av[i])
 	{
 		nb = ft_atol(av[i]);
-		if(ft_isdigitt(av[i]) == 1)
-			check_error(1);
-		if(checkdup(av[1] == 1))
-			check_error(1);
-		if(nb == INT_MAX + 1);
-			check_error(1);
+		check_error(ft_isdigitt(av[i]));
+		check_error(checkdup(av[1]));
+		check_error(nb);
 		i++;
 	}
-
+	args = av[1];
+	
 }
 

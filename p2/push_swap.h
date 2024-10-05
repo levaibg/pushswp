@@ -6,7 +6,7 @@
 /*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 21:25:32 by lloginov          #+#    #+#             */
-/*   Updated: 2024/10/02 19:01:51 by lloginov         ###   ########.fr       */
+/*   Updated: 2024/10/05 04:19:43 by lloginov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,6 @@ typedef struct s_struct
 	struct s_stack	*next;
 } t_stack;
 
-typedef struct s_pushswap
-{
-	t_stack *a;
-	t_stack *b;	
-}		t_pushswap;
-
 #include "stdio.h"
 # include <unistd.h>
 # include <stdio.h>
@@ -41,24 +35,24 @@ typedef struct s_pushswap
 
 // reverse rotate
 
-t_stack *beforelast(t_pushswap *ps);
-t_stack *beforelast2(t_pushswap *ps);
-void	reversra(t_pushswap *ps, int n);
-void	reversrb(t_pushswap *ps, int n);
-void	rrr(t_pushswap *ps);
+t_stack *beforelast(t_stack *lst);
+t_stack *beforelast2(t_stack *lst);
+void	reversra(t_stack **a, int n);
+void	reversrb(t_stack **b, int n);
+void	rrr(t_stack **a, t_stack **b);
 
 // rotate
-void	ra(t_pushswap *ps, int n);
-void	rb(t_pushswap *ps, int n);
-void rr(t_pushswap *ps);
+void	ra(t_stack **a, int n);
+void	rb(t_stack **b, int n);
+void rr(t_stack **a, t_stack **b);
 
 // swap + push
 
-void	sa(t_pushswap *ps, int n);
-void	sb(t_pushswap *ps, int n);
-void	ss(t_pushswap *ps);
-void	pa(t_pushswap *ps);
-void	pb(t_pushswap *ps);
+void	sa(t_stack *a, int n);
+void	sb(t_stack *b, int n);
+void	ss(t_stack **a, t_stack **b);
+void	pa(t_stack **a, t_stack **b);
+void	pb(t_stack **b, t_stack **a);
 
 // split
 
@@ -80,7 +74,25 @@ static int	checkdup(char **av);
 void	ft_lstadd_front(t_stack **lst, t_stack *new);
 t_stack	ft_lstlast(t_stack *lst);
 void	ft_lstadd_back(t_stack **lst, t_stack *new);
+t_stack	*ft_lstnew(int n);
+void	ft_freelst(t_stack **lst);
 
+
+// checker 
+void	ft_checker(int ac, char **av);
+
+//  fonctions
+t_stack	*stackfill(int ac, char **av);
+int	ifsorted(t_stack *lst);
+
+// sort;
+t_stack	*ft_max(t_stack *lst);
+t_stack	*ft_min(t_stack *lst);
+int len_stack(t_stack *lst);
+void	sort3(t_stack *lst);
+
+// utils 2
+void    check_error(long int n);
 
 
 #endif

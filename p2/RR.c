@@ -6,7 +6,7 @@
 /*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 21:34:19 by lloginov          #+#    #+#             */
-/*   Updated: 2024/10/02 19:35:33 by lloginov         ###   ########.fr       */
+/*   Updated: 2024/10/04 22:44:04 by lloginov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_stack *beforelast(t_pushswap *ps)
 	t_stack *tmp;
 
 	tmp = ps->a;
-	while (tmp -> next ->next != NULL)
+	while (tmp->next->next != NULL)
 	{
 		tmp = tmp->next;
 	}

@@ -6,27 +6,28 @@
 /*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 17:38:13 by lloginov          #+#    #+#             */
-/*   Updated: 2024/10/02 19:01:15 by lloginov         ###   ########.fr       */
+/*   Updated: 2024/10/05 04:17:08 by lloginov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
+#include "push_swap.h"
 
 
-void	stackfill(t_stack **lst, int ac, char **av)
+t_stack	*stackfill(int ac, char **av)
 {
-	t_stack new;
+	t_stack *lst;
+	t_stack *new;
 	char **av2;
 	int i;
-	i = 1;
 
+	i = 1;
 	if(ac == 2)
 	{
 		i = 0;
 		av2 = ft_split(av[1], ' ');
 	}
 	else 
-		av2 = av;
+		av2 = av[1];
 	while(av[i])
 	{
 			new = ft_lstnew(ft_atoi(av2[1]));
@@ -34,21 +35,22 @@ void	stackfill(t_stack **lst, int ac, char **av)
 			i++;
 	}
 	free(av2);
-	
+	return(lst);
 }
 
-void	ifsorted(t_stack **lst)
+int	sorted(t_stack *lst)
 {
+	int	a;
+	int	i;
 
-	t_stack *tmp;
-
-	tmp = *lst;
-	while(tmp && tmp -> next)
+	i = 1;
+	while (lst->next != NULL)
 	{
-		if(tmp -> value > tmp ->next -> value)
-			return(1);
-		tmp = tmp -> next;
+		a = lst->value;
+		lst = lst->next;
+		i++;
+		if (lst->value < a)
+			return (i);
 	}
-	return(0);
+	return (0);
 }
-
