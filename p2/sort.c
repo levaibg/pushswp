@@ -6,7 +6,7 @@
 /*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 19:10:22 by lloginov          #+#    #+#             */
-/*   Updated: 2024/10/05 04:27:41 by lloginov         ###   ########.fr       */
+/*   Updated: 2024/10/05 18:24:17 by lloginov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 t_stack	*ft_max(t_stack *lst)
 {
-	long	litle;
+	long	little;
 	t_stack	*bigstack;
 
-	litle = LONG_MIN;
+	little = LONG_MIN;
 	while (lst)
 	{
-		if (lst->value > litle)
+		if (lst->value > little)
 		{
-			litle = lst->value;
+			little = lst->value;
 			bigstack = lst;
 		}
 		lst = lst->next;
@@ -48,28 +48,28 @@ t_stack	*ft_min(t_stack *lst)
 	return (lowstack);
 }
 
-int len_stack(t_stack *lst)
+int	len_stack(t_stack *lst)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while(lst != NULL)
+	while (lst != NULL)
 	{
 		lst = lst->next;
 		i++;
 	}
-	return(i);
+	return (i);
 }
 
 void	sort3(t_stack **lst)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	tmp = ft_max(*lst);
-	if((*lst) == tmp)
+	if ((*lst) == tmp)
 		ra(lst, 0);
-	else if((*lst)->next == tmp)
+	else if ((*lst)->next == tmp)
 		reversra(lst, 0);
-	if(ifsorted(*lst) == 2)
+	if (ifsorted(*lst) == 2)
 		sa(*lst, 0);
 }

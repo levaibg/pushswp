@@ -6,45 +6,47 @@
 /*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 21:37:01 by lloginov          #+#    #+#             */
-/*   Updated: 2024/10/02 19:35:17 by lloginov         ###   ########.fr       */
+/*   Updated: 2024/10/05 18:22:12 by lloginov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ra(t_pushswap *ps, int n)
+void	ra(t_stack **stack_a, int n)
 {
-	t_stack *tmp;
-	t_stack *last;
-	if(ps == NULL||ps->a == NULL)
+	int		nb;
+	t_stack	*temp;
+
+	if (!(*stack_a))
 		return ;
-	tmp = ps->a;
-	ps->a = ps->a -> next;
-	last = ft_lstlast(ps->a);
-	last->next = tmp;
-	tmp->next = NULL;
-	if(n == 0)
-		ft_printf("ra\n");
+	nb = (*stack_a)->value;
+	temp = (*stack_a)->next;
+	free(*stack_a);
+	(*stack_a) = temp;
+	ft_lstadd_back(stack_a, ft_lstnew(nb));
+	if (n == 0)
+		write(1, "ra\n", 3);
 }
 
-void	rb(t_pushswap *ps, int n)
+void	rb(t_stack **stack_b, int n)
 {
-	t_stack *tmp;
-	t_stack *last;
-	if(ps == NULL||ps->b == NULL)
+	int		nb;
+	t_stack	*temp;
+
+	if (!(*stack_b))
 		return ;
-	tmp = ps->b;
-	ps->b = ps->b -> next;
-	last = ft_lstlast(ps->b);
-	last->next = tmp;
-	tmp->next = NULL;
-	if(n == 0)
-		ft_printf("rb\n");
+	nb = (*stack_b)->value;
+	temp = (*stack_b)->next;
+	free(*stack_b);
+	(*stack_b) = temp;
+	ft_lstadd_back(stack_b, ft_lstnew(nb));
+	if (n == 0)
+		write(1, "rb\n", 3);
 }
 
-void rr(t_pushswap *ps)
+void	rr(t_stack **stack_a, t_stack **stack_b)
 {
-	ra(ps, 1);
-	rb(ps, 1);
-	ft_printf("rr\n");
+	ra(stack_a, 1);
+	rb(stack_b, 1);
+	write(1, "rr\n", 3);
 }

@@ -6,24 +6,23 @@
 /*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 22:01:54 by lloginov          #+#    #+#             */
-/*   Updated: 2024/10/05 01:26:09 by lloginov         ###   ########.fr       */
+/*   Updated: 2024/10/05 18:16:23 by lloginov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
 void	ft_lstadd_front(t_stack **lst, t_stack *new)
 {
-		new->next = *lst;
-		*lst = new;
+	new->next = *lst;
+	*lst = new;
 }
 
 t_stack	*ft_lstlast(t_stack *lst)
 {
-	while(lst->next)
+	while (lst && lst->next)
 		lst = lst->next;
-	return(lst);
+	return (lst);
 }
 
 void	ft_lstadd_back(t_stack **lst, t_stack *new)
@@ -37,13 +36,12 @@ void	ft_lstadd_back(t_stack **lst, t_stack *new)
 		last->next = new;
 }
 
-
 t_stack	*ft_lstnew(int n)
 {
-	t_stack *f;
+	t_stack	*f;
 
 	f = malloc(sizeof(t_stack));
-	if(!f)
+	if (!f)
 		return (NULL);
 	f->value = n;
 	f->next = NULL;
@@ -54,10 +52,10 @@ void	ft_freelst(t_stack **lst)
 {
 	t_stack	*tmp;
 
-	while ((*lst) != NULL)
+	while (*lst != NULL)
 	{
 		tmp = (*lst)->next;
 		free(*lst);
-		(*lst) = tmp;
+		*lst = tmp;
 	}
 }

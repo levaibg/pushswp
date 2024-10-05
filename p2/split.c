@@ -6,13 +6,11 @@
 /*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 21:41:37 by lloginov          #+#    #+#             */
-/*   Updated: 2024/09/30 23:48:20 by lloginov         ###   ########.fr       */
+/*   Updated: 2024/10/05 18:24:40 by lloginov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-
 
 static size_t	count_words(const char *str, char c)
 {

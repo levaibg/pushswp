@@ -6,18 +6,17 @@
 /*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 15:28:05 by lloginov          #+#    #+#             */
-/*   Updated: 2024/10/04 23:48:53 by lloginov         ###   ########.fr       */
+/*   Updated: 2024/10/05 18:25:28 by lloginov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-void    check_error(long int n)
+void	check_error(long int n)
 {
-    if (n == 1 || n == INT_MAX + 1)
-    {
-        ft_printf("Error");
-        exit(0);
-    }
+	if (n == 1 || n == INT_MAX + 1)
+	{
+		ft_printf("Error");
+		exit(0);
+	}
 }

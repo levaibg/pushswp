@@ -6,13 +6,13 @@
 /*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 21:43:30 by lloginov          #+#    #+#             */
-/*   Updated: 2024/10/02 19:08:07 by lloginov         ###   ########.fr       */
+/*   Updated: 2024/10/05 18:13:11 by lloginov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-long    ft_atol(char *av)
+long	ft_atol(char *av)
 {
 	long	i;
 	long	sign;
@@ -21,7 +21,7 @@ long    ft_atol(char *av)
 	i = 0;
 	sign = 1;
 	number = 0;
-	while ((av[i] >= 9 && av[i] <= 13 )|| av[i] == ' ')
+	while ((av[i] >= 9 && av[i] <= 13) || av[i] == ' ')
 		i++;
 	while (av[i] == '-' || av[i] == '+')
 	{
@@ -34,12 +34,12 @@ long    ft_atol(char *av)
 		number = number * 10 + (av[i] - 48);
 		i++;
 	}
-    if(number == INT_MAX || (number * sign == INT_MIN))
-        return(INT_MAX + 1);
+	if (number == INT_MAX || (number * sign == INT_MIN))
+		return (INT_MAX + 1);
 	return (number * sign);
 }
 
- int	ft_isdigit2(char *num)
+int	ft_isdigit2(char *num)
 {
 	int	i;
 
@@ -54,24 +54,21 @@ long    ft_atol(char *av)
 	}
 	return (0);
 }
-	
 
-int ft_nbrcomp(char *s1, char *s2)
+int	ft_nbrcomp(char *s1, char *s2)
 {
-    int i;
-    int j;
-    
-    i = 0;
-    j = 0;
+	int	i;
+	int	j;
 
-    while(s1[i] != '\0' && s2[j] != '\0' && s1[i] == s2[j])
-    {
-        i++;
-        j++;
-    }
-    return((char)s1[i] - (char)s2[j]);
+	i = 0;
+	j = 0;
+	while (s1[i] != '\0' && s2[j] != '\0' && s1[i] == s2[j])
+	{
+		i++;
+		j++;
+	}
+	return ((char)s1[i] - (char)s2[j]);
 }
-
 
 char	*ft_strchr(const char *s, int c)
 {
@@ -86,22 +83,20 @@ char	*ft_strchr(const char *s, int c)
 
 static int	checkdup(char **av)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 1;
-
 	while (av[i])
 	{
 		j = 1;
-		while(av[j])
+		while (av[j])
 		{
-			if(i != j && ft_nbrcomp(av[i],av[j]) == 0)
-			return(1);
-		j++;
+			if (i != j && ft_nbrcomp(av[i], av[j]) == 0)
+				return (1);
+			j++;
 		}
 		i++;
 	}
-	return(0);
-	
+	return (0);
 }
