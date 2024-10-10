@@ -6,15 +6,15 @@
 #    By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/05 04:05:33 by lloginov          #+#    #+#              #
-#    Updated: 2024/10/05 04:15:33 by lloginov         ###   ########.fr        #
+#    Updated: 2024/10/10 19:01:24 by lloginov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 SRCS = push_swap.c\
 		fonctions.c\
-		list_utils.c\
-		chercker.c\
+		list-utils.c\
+		checher.c\
 		Rotate.c\
 		RR.c\
 		sort.c\

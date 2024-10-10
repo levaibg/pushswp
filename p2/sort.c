@@ -6,7 +6,7 @@
 /*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 19:10:22 by lloginov          #+#    #+#             */
-/*   Updated: 2024/10/05 18:24:17 by lloginov         ###   ########.fr       */
+/*   Updated: 2024/10/10 22:15:56 by lloginov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,10 @@ void	sort3(t_stack **lst)
 	if ((*lst) == tmp)
 		ra(lst, 0);
 	else if ((*lst)->next == tmp)
-		reversra(lst, 0);
+		rra(lst, 0);
 	if (ifsorted(*lst) == 2)
+	{	
 		sa(*lst, 0);
+	}
+
 }

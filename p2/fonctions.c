@@ -6,7 +6,7 @@
 /*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 17:38:13 by lloginov          #+#    #+#             */
-/*   Updated: 2024/10/05 18:15:19 by lloginov         ###   ########.fr       */
+/*   Updated: 2024/10/10 22:21:39 by lloginov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,16 @@ t_stack	*stackfill(int ac, char **av)
 
 	i = 1;
 	lst = NULL;
+	av2 = ft_split(av[1], ' ');
 	if (ac == 2)
 	{
 		i = 0;
-		av2 = ft_split(av[1], ' ');
 	}
 	else
 		av2 = av;
 	while (av2[i])
 	{
-		new = ft_lstnew(ft_atoi(av2[i]));
+		new = ft_lstnew(ft_atol(av2[i]));
 		ft_lstadd_back(&lst, new);
 		i++;
 	}
@@ -39,19 +39,23 @@ t_stack	*stackfill(int ac, char **av)
 	return (lst);
 }
 
-int	sorted(t_stack *lst)
+int	ifsorted(t_stack *lst)
 {
-	int	a;
-	int	i;
+	t_stack	*tmp;
+	int		i;
 
+	if (lst == NULL || lst->next == NULL)
+		return (0);
 	i = 1;
+	tmp = lst->next;
 	while (lst && lst->next != NULL)
 	{
-		a = lst->value;
-		lst = lst->next;
-		i++;
-		if (lst->value < a)
+		if (lst->value < tmp->value)
 			return (i);
+		lst = lst->next;
+		tmp = lst->next;
+		i++;
 	}
 	return (0);
 }
+

@@ -6,7 +6,7 @@
 /*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 21:34:19 by lloginov          #+#    #+#             */
-/*   Updated: 2024/10/05 18:23:14 by lloginov         ###   ########.fr       */
+/*   Updated: 2024/10/10 19:32:10 by lloginov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	rra(t_stack **a, int n)
 		write(1, "rra\n", 4);
 }
 
-void	reversrb(t_stack **b, int n)
+void	rrb(t_stack **b, int n)
 {
 	t_stack	*before_last;
 	t_stack	*last;
@@ -66,6 +66,6 @@ void	reversrb(t_stack **b, int n)
 void	rrr(t_stack **a, t_stack **b)
 {
 	rra(a, 1);
-	reversrb(b, 1);
+	rrb(b, 1);
 	write(1, "rrr\n", 4);
 }

@@ -6,7 +6,7 @@
 /*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 21:43:30 by lloginov          #+#    #+#             */
-/*   Updated: 2024/10/05 18:13:11 by lloginov         ###   ########.fr       */
+/*   Updated: 2024/10/10 21:33:48 by lloginov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ long	ft_atol(char *av)
 		i++;
 	}
 	if (number == INT_MAX || (number * sign == INT_MIN))
-		return (INT_MAX + 1);
+		check_error(1);
 	return (number * sign);
 }
 
@@ -70,7 +70,7 @@ int	ft_nbrcomp(char *s1, char *s2)
 	return ((char)s1[i] - (char)s2[j]);
 }
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strchr(char *s, int c)
 {
 	while ((char)c != *s)
 	{
@@ -81,7 +81,7 @@ char	*ft_strchr(const char *s, int c)
 	return ((char *)s);
 }
 
-static int	checkdup(char **av)
+int	checkdup(char *av)
 {
 	int	i;
 	int	j;
@@ -92,7 +92,7 @@ static int	checkdup(char **av)
 		j = 1;
 		while (av[j])
 		{
-			if (i != j && ft_nbrcomp(av[i], av[j]) == 0)
+			if (i != j && ft_nbrcomp(&av[i], &av[j]) == 0)
 				return (1);
 			j++;
 		}

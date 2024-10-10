@@ -6,7 +6,7 @@
 /*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 21:39:20 by lloginov          #+#    #+#             */
-/*   Updated: 2024/10/05 18:24:53 by lloginov         ###   ########.fr       */
+/*   Updated: 2024/10/10 22:14:18 by lloginov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,11 @@ t_stack	*sa(t_stack *lst, int n)
 	lst->value = lst_tmp->value;
 	lst = lst_tmp;
 	lst->value = tmp;
+
 	if (n == 0)
+	{
 		write(1, "sa\n", 3);
+	}
 	return (lst);
 }
 
@@ -81,7 +84,7 @@ t_stack	*sb(t_stack *lst, int n)
 
 void	ss(t_stack **a, t_stack **b)
 {
-	sa(a, 1);
-	sb(b, 1);
-	ft_printf("ss");
+	sa(*a, 1);
+	sb(*b, 1);
+	write(1, "ss\n", 3);
 }

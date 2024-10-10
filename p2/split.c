@@ -6,13 +6,13 @@
 /*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 21:41:37 by lloginov          #+#    #+#             */
-/*   Updated: 2024/10/05 18:24:40 by lloginov         ###   ########.fr       */
+/*   Updated: 2024/10/10 19:23:49 by lloginov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static size_t	count_words(const char *str, char c)
+size_t	count_words(char *str, char c)
 {
 	size_t	i;
 	int		mot;
@@ -33,7 +33,7 @@ static size_t	count_words(const char *str, char c)
 	return (i);
 }
 
-static const char	*next_wd(const char *str, char c)
+char	*next_wd(char *str, char c)
 {
 	int	i;
 
@@ -43,7 +43,7 @@ static const char	*next_wd(const char *str, char c)
 	return (&str[i]);
 }
 
-static size_t	world_len(const char *str, char c)
+size_t	world_len(char *str, char c)
 {
 	size_t	i;
 
@@ -53,7 +53,7 @@ static size_t	world_len(const char *str, char c)
 	return (i);
 }
 
-char	**ft_split(const char *s, char c)
+char	**ft_split(char *s, char c)
 {
 	size_t	j;
 	size_t	word_count;
