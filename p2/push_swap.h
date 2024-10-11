@@ -6,7 +6,7 @@
 /*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 21:25:32 by lloginov          #+#    #+#             */
-/*   Updated: 2024/10/10 20:24:18 by lloginov         ###   ########.fr       */
+/*   Updated: 2024/10/11 20:58:26 by lloginov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,9 +80,11 @@ t_stack				*ft_max(t_stack *lst);
 t_stack				*ft_min(t_stack *lst);
 int					len_stack(t_stack *lst);
 void				sort3(t_stack **lst);
+void				sort4(t_stack **a, t_stack **b);
+
 
 // Utils 2
-void				check_error(int n);
+void				check_error(int n, char **str);
 int					ft_isdigit(char i);
 
 #endif

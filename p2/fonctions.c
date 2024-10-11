@@ -6,7 +6,7 @@
 /*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 17:38:13 by lloginov          #+#    #+#             */
-/*   Updated: 2024/10/10 22:21:39 by lloginov         ###   ########.fr       */
+/*   Updated: 2024/10/11 18:38:13 by lloginov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,21 +41,20 @@ t_stack	*stackfill(int ac, char **av)
 
 int	ifsorted(t_stack *lst)
 {
-	t_stack	*tmp;
-	int		i;
+	int i;
+	int nb;
 
-	if (lst == NULL || lst->next == NULL)
-		return (0);
 	i = 1;
-	tmp = lst->next;
-	while (lst && lst->next != NULL)
+
+	while(lst->next != NULL)
 	{
-		if (lst->value < tmp->value)
-			return (i);
+		nb = lst->value;
 		lst = lst->next;
-		tmp = lst->next;
 		i++;
+		if(nb >lst->value)
+			return(i);
+		
 	}
-	return (0);
+	return(0);
 }
 

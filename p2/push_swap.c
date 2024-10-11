@@ -6,7 +6,7 @@
 /*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 23:45:34 by lloginov          #+#    #+#             */
-/*   Updated: 2024/10/10 22:13:27 by lloginov         ###   ########.fr       */
+/*   Updated: 2024/10/11 21:30:35 by lloginov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,10 @@ int	main(int ac, char **av)
 			sa(a, 0);
 		else if (len_stack(a) == 3)
 			sort3(&a);
-		else if (len_stack(b) == 5)
-			return(1);
+		else if (len_stack(a) == 4)
+			sort4(&a,&b);
+		if(ifsorted(a))
+			printf("sorted\n");
 
 	
 	}
