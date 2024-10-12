@@ -1,83 +1,84 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   split.c                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/30 21:41:37 by lloginov          #+#    #+#             */
-/*   Updated: 2024/10/10 19:23:49 by lloginov         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include <stdlib.h>
 
-#include "push_swap.h"
 
-size_t	count_words(char *str, char c)
+void	free_split(char **split, size_t i)
 {
-	size_t	i;
-	int		mot;
-
-	i = 0;
-	mot = 0;
-	while (*str)
+	while (i > 0)
 	{
-		if (*str != c && mot == 0)
-		{
-			mot = 1;
-			i++;
-		}
-		else if (*str == c)
-			mot = 0;
-		str++;
+		free(split[i - 1]);
+		i--;
 	}
-	return (i);
+	free(split);
 }
 
-char	*next_wd(char *str, char c)
+size_t	count_words(const char *s, char c)
 {
-	int	i;
+	size_t	count;
+	int		in_word;
 
-	i = 0;
-	while (str[i] && str[i] == c)
-		i++;
-	return (&str[i]);
+	count = 0;
+	in_word = 0;
+	while (*s)
+	{
+		if (*s != c && !in_word)
+		{
+			in_word = 1;
+			count++;
+		}
+		else if (*s == c)
+			in_word = 0;
+		s++;
+	}
+	return (count);
 }
 
-size_t	world_len(char *str, char c)
+const char	*next_word(const char *s, char c)
+{
+	while (*s && *s == c)
+		s++;
+	return (s);
+}
+
+size_t	word_length(const char *s, char c)
+{
+	size_t	len;
+
+	len = 0;
+	while (s[len] && s[len] != c)
+		len++;
+	return (len);
+}
+
+char	**ft_split(const char *s, char c)
 {
 	size_t	i;
-
-	i = 0;
-	while (str[i] && str[i] != c)
-		i++;
-	return (i);
-}
-
-char	**ft_split(char *s, char c)
-{
-	size_t	j;
 	size_t	word_count;
-	size_t	i;
-	size_t	word_len;
-	char	**ptr;
+	size_t	w_len;
+	char	**split;
 
-	word_count = count_words(s, c);
-	i = 0;
-	ptr = (char **)malloc(sizeof(char *) * (word_count + 1));
-	if (!ptr)
+	if (!s)
 		return (NULL);
+	word_count = count_words(s, c);
+	split = (char **)malloc(sizeof(char *) * (word_count + 1));
+	if (!split)
+		return (NULL);
+	i = 0;
 	while (*s && i < word_count)
 	{
-		s = next_wd(s, c);
-		word_len = world_len(s, c);
-		ptr[i] = (char *)malloc(sizeof(char) * (word_len + 1));
-		if (!ptr[i])
+		s = next_word(s, c);
+		w_len = word_length(s, c);
+		split[i] = (char *)malloc(sizeof(char) * (w_len + 1));
+		if (!split[i])
+		{
+			free_split(split, i);
 			return (NULL);
-		j = 0;
-		while (j < word_len)
-			ptr[i][j++] = *s++;
-		ptr[i++][word_len] = '\0';
+		}
+		for (size_t j = 0; j < w_len; j++)
+			split[i][j] = s[j];
+		split[i][w_len] = '\0';
+		s += w_len;
+		i++;
 	}
-	ptr[word_count] = NULL;
-	return (ptr);
+	split[i] = NULL;
+	return (split);
 }

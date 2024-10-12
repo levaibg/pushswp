@@ -6,7 +6,7 @@
 #    By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/05 04:05:33 by lloginov          #+#    #+#              #
-#    Updated: 2024/10/10 19:01:24 by lloginov         ###   ########.fr        #
+#    Updated: 2024/10/12 19:40:12 by lloginov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,17 +23,17 @@ SRCS = push_swap.c\
 		utils.c\
 		utils2.c\
 
-CC = cc
+CC = gcc
 RM = rm -f
-FLAGS = -Wall -Werror -Wextra 
+FLAGS = -Wall -Werror -Wextra  #-fsanitize=address -g3
 NAME = push_swap
 OBJS = $(SRCS:.c=.o)
 
 .c.o:
-	$(CC) $(FLAGS) -c $< -o $(<:.c=.o)
+	$(CC) $(FLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
-	cc -o $(NAME) $(OBJS)
+	$(CC) $(FLAGS) -o $(NAME) $(OBJS)
 
 all: $(NAME)
 

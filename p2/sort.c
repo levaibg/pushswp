@@ -6,7 +6,7 @@
 /*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 19:10:22 by lloginov          #+#    #+#             */
-/*   Updated: 2024/10/11 23:53:23 by lloginov         ###   ########.fr       */
+/*   Updated: 2024/10/13 00:24:32 by lloginov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,24 +77,12 @@ void	sort3(t_stack **lst)
 
 }
 
-
-void	init_index(t_stack *lst)
+void	sort5(t_stack **lst)
 {
-	long mid;
-	int i;
-	int negative;
 
-	i = 0;
-	mid = (len_stack(lst) / 2);
-	while(lst)
-	{
-		if(i <= mid)
-			lst->index = i++;
-		else
-		{
-			negative = -len_stack(lst);
-			lst->index = negative++;
-		}
-		lst = lst->next;
-	}
+	t_stack *small;
+	t_stack	*small2;
+
+	small = ft_min;
+
 }

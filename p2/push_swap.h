@@ -6,7 +6,7 @@
 /*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 21:25:32 by lloginov          #+#    #+#             */
-/*   Updated: 2024/10/11 20:58:26 by lloginov         ###   ########.fr       */
+/*   Updated: 2024/10/12 21:07:12 by lloginov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,13 @@ size_t	count_words(char *str, char c);
 char	*next_wd(char *str, char c);
 size_t		world_len(char *str, char c);
 char				**ft_split(char *s, char c);
+void	free_split(char **split, size_t i);
 
 // Utils
 long				ft_atol(char *av);
-int					ft_nbrcomp(char *s1, char *s2);
+int ft_nbrcomp(long nb,char **av, int i);
 char				*ft_strchr(char *s, int c);
 int					ft_isdigit2(char *num);
-int					checkdup(char *av);
 
 // List-utils
 void				ft_lstadd_front(t_stack **lst, t_stack *new);
@@ -71,6 +71,8 @@ void				ft_freelst(t_stack **lst);
 
 // Checker
 void				ft_checker(int ac, char **av);
+void	ft_check_s(char **args, int i);
+void	ft_check_v(char **args, int i);
 // Fonctions
 t_stack				*stackfill(int ac, char **av);
 int					ifsorted(t_stack *lst);
@@ -84,7 +86,10 @@ void				sort4(t_stack **a, t_stack **b);
 
 
 // Utils 2
-void				check_error(int n, char **str);
+void				check_error(int n);
 int					ft_isdigit(char i);
+void	ft_free_array(char **array);
+// void printlst(t_stack *lst);
+void	ft_free_error(int n, char **str);
 
 #endif
