@@ -6,7 +6,7 @@
 /*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 21:25:32 by lloginov          #+#    #+#             */
-/*   Updated: 2024/10/12 21:07:12 by lloginov         ###   ########.fr       */
+/*   Updated: 2024/10/13 19:09:39 by lloginov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,4 +92,8 @@ void	ft_free_array(char **array);
 // void printlst(t_stack *lst);
 void	ft_free_error(int n, char **str);
 
+//sort2
+
+int maxbits(t_stack *lst);
+void radix_sort(t_stack **a, t_stack **b);
 #endif

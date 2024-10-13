@@ -6,14 +6,48 @@
 /*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 00:37:45 by lloginov          #+#    #+#             */
-/*   Updated: 2024/10/13 00:39:20 by lloginov         ###   ########.fr       */
+/*   Updated: 2024/10/13 19:12:06 by lloginov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include "push_swap.h"
 
 
-void	sort(t_stack **a, t_stack **b)
+int maxbits(t_stack *lst)
 {
-	
+    int max;
+    int bits;
+
+    max = ft_max(lst)->value;
+    bits = 0;
+    while ((max >> bits) != 0)
+        bits++;
+    return (bits);
+}
+
+void radix_sort(t_stack **a, t_stack **b)
+{
+    int i;
+    int j;
+    int max_bits;
+    int size;
+
+    size = len_stack(*a);       
+    max_bits = maxbits(*a);    
+    i = 0;
+    while (i < max_bits)
+    {
+        j = 0;
+        while (j < size)
+        {
+            if ((((*a)->value >> i) & 1) == 0)  
+                pb(b, a);                       
+            else
+                ra(a, 0);                        
+            j++;
+        }
+        while (len_stack(*b) > 0)               
+            pa(a, b);
+        i++;
+    }
 }
