@@ -51,3 +51,58 @@ void radix_sort(t_stack **a, t_stack **b)
         i++;
     }
 }
+
+/*test whith offest 
+int	get_offset(t_stack *lst)
+{
+	int	min;
+
+	min = ft_min(lst)->value;
+	if (min < 0)
+		return (-min);
+	return (0);
+}
+
+void	radix_sort(t_stack **a, t_stack **b)
+{
+	int		i;
+	int		j;
+	int		max_bits;
+	int		size;
+	int		offset;
+	t_stack	*temp;
+
+	offset = get_offset(*a);
+	temp = *a;
+	while (temp)
+	{
+		temp->value += offset;
+		temp = temp->next;
+	}
+	size = len_stack(*a);
+	max_bits = maxbits(*a);
+	i = 0;
+	while (i < max_bits)
+	{
+		j = 0;
+		while (j < size)
+		{
+			if ((((*a)->value >> i) & 1) == 0)
+				pb(b, a);
+			else
+				ra(a, 0);
+			j++;
+		}
+		while (len_stack(*b) > 0)
+			pa(a, b);
+		i++;
+	}
+	temp = *a;
+	while (temp)
+	{
+		temp->value -= offset;
+		temp = temp->next;
+	}
+}
+
+*/
