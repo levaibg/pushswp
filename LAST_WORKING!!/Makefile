@@ -6,7 +6,7 @@
 #    By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/05 04:05:33 by lloginov          #+#    #+#              #
-#    Updated: 2024/10/13 19:09:56 by lloginov         ###   ########.fr        #
+#    Updated: 2024/10/27 23:53:45 by lloginov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRCS = push_swap.c\
 		utils.c\
 		utils2.c\
 		sort2.c\
+		sort_utils.c\
 
 CC = gcc
 RM = rm -f

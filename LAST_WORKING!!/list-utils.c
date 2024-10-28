@@ -6,7 +6,7 @@
 /*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 22:01:54 by lloginov          #+#    #+#             */
-/*   Updated: 2024/10/12 18:53:50 by lloginov         ###   ########.fr       */
+/*   Updated: 2024/10/28 00:08:27 by lloginov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ t_stack	*ft_lstnew(int n)
 		return (NULL);
 	f->value = n;
 	f->next = NULL;
-	return (f);	
+	return (f);
 }
 
 void	ft_freelst(t_stack **lst)

@@ -1,5 +1,16 @@
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   split.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/27 23:57:09 by lloginov          #+#    #+#             */
+/*   Updated: 2024/10/27 23:58:31 by lloginov         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "push_swap.h"
 
 void	free_split(char **split, size_t i)
 {
@@ -52,8 +63,8 @@ size_t	word_length(const char *s, char c)
 char	**ft_split(const char *s, char c)
 {
 	size_t	i;
-	size_t	word_count;
 	size_t	w_len;
+	size_t	word_count;
 	char	**split;
 
 	if (!s)
@@ -69,13 +80,8 @@ char	**ft_split(const char *s, char c)
 		w_len = word_length(s, c);
 		split[i] = (char *)malloc(sizeof(char) * (w_len + 1));
 		if (!split[i])
-		{
-			free_split(split, i);
-			return (NULL);
-		}
-		for (size_t j = 0; j < w_len; j++)
-			split[i][j] = s[j];
-		split[i][w_len] = '\0';
+			return (free_split(split, i), NULL);
+		ft_strlcpy(split[i], s, w_len + 1);
 		s += w_len;
 		i++;
 	}

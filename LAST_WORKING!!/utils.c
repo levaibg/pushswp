@@ -6,7 +6,7 @@
 /*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 21:43:30 by lloginov          #+#    #+#             */
-/*   Updated: 2024/10/12 19:52:59 by lloginov         ###   ########.fr       */
+/*   Updated: 2024/10/28 00:03:04 by lloginov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,13 @@ long	ft_atol(char *av)
 		number = number * 10 + (av[i] - 48);
 		i++;
 	}
-	// if (number >= INT_MAX || (number * sign <= INT_MIN))
-	// 	check_error(1);
 	return (number * sign);
 }
 
 int	ft_isdigit2(char *num)
 {
 	int	i;
+
 	i = 0;
 	if (num[0] == '-')
 		i++;
@@ -54,19 +53,17 @@ int	ft_isdigit2(char *num)
 	return (0);
 }
 
-int ft_nbrcomp(long nb, char **av,int i)
+int	ft_nbrcomp(long nb, char **av, int i)
 {
-
 	i = i + 1;
-	while(av[i])
+	while (av[i])
 	{
-		if(ft_atol(av[i]) == nb)
-			return(1);
+		if (ft_atol(av[i]) == nb)
+			return (1);
 		i++;
 	}
-    return 0; 
+	return (0);
 }
-
 
 char	*ft_strchr(char *s, int c)
 {
@@ -78,4 +75,3 @@ char	*ft_strchr(char *s, int c)
 	}
 	return ((char *)s);
 }
-

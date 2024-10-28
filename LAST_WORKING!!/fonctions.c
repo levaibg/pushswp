@@ -6,7 +6,7 @@
 /*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 17:38:13 by lloginov          #+#    #+#             */
-/*   Updated: 2024/10/12 19:09:17 by lloginov         ###   ########.fr       */
+/*   Updated: 2024/10/28 01:01:32 by lloginov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,28 +36,24 @@ t_stack	*stackfill(int ac, char **av)
 	}
 	if (ac == 2)
 		ft_free_array(av2);
-	// ft_freelst(&new);
 	return (lst);
 }
 
 int	ifsorted(t_stack *lst)
 {
-	int i;
-	int nb;
+	int	i;
+	int	nb;
 
 	i = 1;
-	if(lst == NULL)
-		return(-1);
-
-	while(lst->next != NULL)
+	if (lst == NULL)
+		return (-1);
+	while (lst->next != NULL)
 	{
 		nb = lst->value;
 		lst = lst->next;
 		i++;
-		if(nb >lst->value)
-			return(i);
-		
+		if (nb > lst->value)
+			return (i);
 	}
-	return(0);
+	return (0);
 }
-

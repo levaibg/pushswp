@@ -6,7 +6,7 @@
 /*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 21:39:20 by lloginov          #+#    #+#             */
-/*   Updated: 2024/10/10 22:14:18 by lloginov         ###   ########.fr       */
+/*   Updated: 2024/10/28 00:03:20 by lloginov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ t_stack	*sa(t_stack *lst, int n)
 	lst->value = lst_tmp->value;
 	lst = lst_tmp;
 	lst->value = tmp;
-
 	if (n == 0)
 	{
 		write(1, "sa\n", 3);

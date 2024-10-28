@@ -6,85 +6,70 @@
 /*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 23:41:14 by lloginov          #+#    #+#             */
-/*   Updated: 2024/10/12 23:35:54 by lloginov         ###   ########.fr       */
+/*   Updated: 2024/10/28 00:03:48 by lloginov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
-void	setup_target_a(t_stack *stack_a, t_stack *stack_b)
-{
-	t_stack	*target;
-	t_stack	*temp;
-	long	min;
+#include "push_swap.h"
 
-	temp = stack_b;
-	while (stack_a)
+void	sort4(t_stack **a, t_stack **b)
+{
+	t_stack	*min_node;
+
+	min_node = ft_min(*a);
+	if (*a == min_node)
+		sa(*a, 0);
+	else if (beforelast(*a) == min_node)
+		rra(a, 0);
+	else if ((*a)->next == min_node)
+		ra(a, 0);
+	else if ((*a)->next->next == min_node)
 	{
-		min = LONG_MIN;
-		target = NULL;
-		while (stack_b)
-		{
-			if (stack_a->value > stack_b->value && stack_b->value > min)
-			{
-				target = stack_b;
-				min = stack_b->value;
-			}
-			stack_b = stack_b->next;
-		}
-		stack_b = temp;
-		if (min == LONG_MIN)
-			stack_a->target = ft_max(stack_b);
-		else
-			stack_a->target = target;
-		stack_a = stack_a->next;
+		ra(a, 0);
+		ra(a, 0);
 	}
+	pb(b, a);
+	sort3(a);
 }
 
-void	setup_target_b(t_stack *stack_b, t_stack *stack_a)
+void	sort5(t_stack **a, t_stack **b)
 {
-	t_stack	*target;
-	t_stack	*temp;
-	long	min;
+	t_stack	*min_node;
 
-	temp = stack_a;
-	while (stack_b)
-	{
-		min = LONG_MAX;
-		target = NULL;
-		while (stack_a)
-		{
-			if (stack_b->value < stack_a->value && stack_a->value < min)
-			{
-				target = stack_a;
-				min = stack_a->value;
-			}
-			stack_a = stack_a->next;
-		}
-		stack_a = temp;
-		if (min == LONG_MAX)
-			stack_b->target = ft_min(stack_a);
-		else
-			stack_b->target = target;
-		stack_b = stack_b->next;
-	}
+	min_node = ft_min(*a);
+	if (*a == min_node)
+		pb(b, a);
+	else if (beforelast(*a) == min_node)
+		rra(a, 0);
+	else
+		ra(a, 0);
+	pb(b, a);
+	sort4(a, b);
 }
-void	init_index(t_stack *lst)
+
+void	sort4_5(t_stack **a, t_stack **b)
 {
-	long mid;
-	int i;
-	int negative;
+	if (len_stack(*a) == 4)
+		sort4(a, b);
+	else if (len_stack(*a) == 5)
+		sort5(a, b);
+}
+
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+{
+	size_t	i;
 
 	i = 0;
-	mid = (len_stack(lst) / 2);
-	while(lst)
+	if (dstsize > 0)
 	{
-		if(i <= mid)
-			lst->index = i++;
-		else
+		while (src[i] && i < (dstsize - 1))
 		{
-			negative = -len_stack(lst);
-			lst->index = negative++;
+			dst[i] = src[i];
+			i++;
 		}
-		lst = lst->next;
+		dst[i] = '\0';
 	}
+	while (src[i])
+		i++;
+	return (i);
 }
