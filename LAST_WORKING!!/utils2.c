@@ -6,7 +6,7 @@
 /*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 15:28:05 by lloginov          #+#    #+#             */
-/*   Updated: 2024/10/28 00:02:42 by lloginov         ###   ########.fr       */
+/*   Updated: 2024/10/28 15:27:20 by lloginov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,7 @@ int	ft_isdigit(char c)
 {
 	if (c >= '0' && c <= '9')
 		return (0);
-	else
-		return (1);
+	return (1);
 }
 
 void	ft_free_array(char **array)
@@ -56,16 +55,3 @@ void	ft_free_array(char **array)
 	}
 	free(array);
 }
-
-// void	printlst(t_stack *lst)
-// {
-// 	int	n;
-//
-// 	n = 0;
-// 	while (lst != NULL)
-// 	{
-// 		printf("valeur numero %d :%d\n", n, lst->value);
-// 		lst = lst->next;
-// 		n++;
-// 	}
-// }

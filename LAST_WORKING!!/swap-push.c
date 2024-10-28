@@ -6,7 +6,7 @@
 /*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 21:39:20 by lloginov          #+#    #+#             */
-/*   Updated: 2024/10/28 00:03:20 by lloginov         ###   ########.fr       */
+/*   Updated: 2024/10/28 15:29:00 by lloginov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ void	pa(t_stack **stack_a, t_stack **stack_b)
 
 	if (!(*stack_b))
 		return ;
-	ft_lstadd_front(stack_a, ft_lstnew((*stack_b)->value));
-	tmp = (*stack_b)->next;
-	free(*stack_b);
-	(*stack_b) = tmp;
+	tmp = *stack_b;
+	*stack_b = (*stack_b)->next;
+	tmp->next = *stack_a;
+	*stack_a = tmp;
 	write(1, "pa\n", 3);
 }
 
@@ -33,15 +33,14 @@ void	pb(t_stack **stack_b, t_stack **stack_a)
 
 	if (!(*stack_a))
 		return ;
-	ft_lstadd_front(stack_b, ft_lstnew((*stack_a)->value));
-	tmp = (*stack_a)->next;
-	free(*stack_a);
-	(*stack_a) = tmp;
+	tmp = *stack_a;
+	*stack_a = (*stack_a)->next;
+	tmp->next = *stack_b;
+	*stack_b = tmp;
 	write(1, "pb\n", 3);
 }
 
 //swap
-
 t_stack	*sa(t_stack *lst, int n)
 {
 	t_stack	*lst_tmp;

@@ -6,7 +6,7 @@
 /*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 23:45:34 by lloginov          #+#    #+#             */
-/*   Updated: 2024/10/28 01:03:41 by lloginov         ###   ########.fr       */
+/*   Updated: 2024/10/28 14:57:25 by lloginov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int	main(int ac, char **av)
 		return (1);
 	ft_checker(ac, av);
 	a = stackfill(ac, av);
+	initialize_indexes(a);
 	if (!a)
 		return (1);
 	if (ifsorted(a))

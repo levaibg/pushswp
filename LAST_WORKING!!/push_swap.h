@@ -6,7 +6,7 @@
 /*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 21:25:32 by lloginov          #+#    #+#             */
-/*   Updated: 2024/10/28 01:03:41 by lloginov         ###   ########.fr       */
+/*   Updated: 2024/10/28 15:30:45 by lloginov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ typedef struct s_stack
 {
 	int				index;
 	int				value;
-	struct s_stack	*target;
 	struct s_stack	*next;
 }	t_stack;
 
@@ -89,14 +88,10 @@ void		ft_free_array(char **array);
 void		ft_free_error(int n, char **str);
 
 // Sort2
-int			maxbits(t_stack *lst);
-void		radix_sort(t_stack **a, t_stack **b);
+
 size_t		ft_strlcpy(char *dst, const char *src, size_t dstsize);
 void		radix_sort(t_stack **a, t_stack **b);
-void		adjust_values(t_stack *lst, int offset);
-int			get_offset(t_stack *lst);
-int			maxbits(t_stack *lst);
-void		assign_index(t_stack **lst);
+void		initialize_indexes(t_stack *stack);
 
 // Utils_sort
 void		sort4_5(t_stack **a, t_stack **b);
