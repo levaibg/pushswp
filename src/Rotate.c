@@ -6,7 +6,7 @@
 /*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 21:37:01 by lloginov          #+#    #+#             */
-/*   Updated: 2024/10/05 18:22:12 by lloginov         ###   ########.fr       */
+/*   Updated: 2024/10/28 16:07:56 by lloginov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,18 @@
 
 void	ra(t_stack **stack_a, int n)
 {
-	int		nb;
 	t_stack	*temp;
+	t_stack	*temp2;
 
-	if (!(*stack_a))
+	if (!(*stack_a) || !(*stack_a)->next)
 		return ;
-	nb = (*stack_a)->value;
-	temp = (*stack_a)->next;
-	free(*stack_a);
-	(*stack_a) = temp;
-	ft_lstadd_back(stack_a, ft_lstnew(nb));
+	temp = *stack_a;
+	*stack_a = (*stack_a)->next;
+	temp->next = NULL;
+	temp2 = *stack_a;
+	while (temp2->next)
+		temp2 = temp2->next;
+	temp2->next = temp;
 	if (n == 0)
 		write(1, "ra\n", 3);
 }

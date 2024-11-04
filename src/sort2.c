@@ -6,7 +6,7 @@
 /*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 00:00:00 by lloginov          #+#    #+#             */
-/*   Updated: 2024/10/28 15:30:25 by lloginov         ###   ########.fr       */
+/*   Updated: 2024/10/28 17:01:31 by lloginov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,22 +23,22 @@ void	initialize_indexes(t_stack *stack)
 
 t_stack	*ft_next_min_index(t_stack **stack_a)
 {
-	t_stack	*current;
+	t_stack	*tmp;
 	t_stack	*min;
 	int		found_min;
 
 	min = NULL;
 	found_min = 0;
-	current = *stack_a;
-	while (current)
+	tmp = *stack_a;
+	while (tmp)
 	{
-		if ((current->index == -1)
-			&& (!found_min || current->value < min->value))
+		if ((tmp->index == -1)
+			&& (!found_min || tmp->value < min->value))
 		{
-			min = current;
+			min = tmp;
 			found_min = 1;
 		}
-		current = current->next;
+		tmp = tmp->next;
 	}
 	return (min);
 }

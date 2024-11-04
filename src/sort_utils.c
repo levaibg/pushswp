@@ -6,7 +6,7 @@
 /*   By: lloginov <lloginov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 23:41:14 by lloginov          #+#    #+#             */
-/*   Updated: 2024/10/28 00:03:48 by lloginov         ###   ########.fr       */
+/*   Updated: 2024/10/28 18:11:30 by lloginov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,16 @@ void	sort4(t_stack **a, t_stack **b)
 	t_stack	*min_node;
 
 	min_node = ft_min(*a);
-	if (*a == min_node)
-		sa(*a, 0);
-	else if (beforelast(*a) == min_node)
-		rra(a, 0);
-	else if ((*a)->next == min_node)
-		ra(a, 0);
-	else if ((*a)->next->next == min_node)
+	while (*a != min_node)
 	{
-		ra(a, 0);
-		ra(a, 0);
+		if (beforelast(*a) == min_node)
+			rra(a, 0);
+		else
+			ra(a, 0);
 	}
 	pb(b, a);
 	sort3(a);
+	pa(a, b);
 }
 
 void	sort5(t_stack **a, t_stack **b)
@@ -37,14 +34,16 @@ void	sort5(t_stack **a, t_stack **b)
 	t_stack	*min_node;
 
 	min_node = ft_min(*a);
-	if (*a == min_node)
-		pb(b, a);
-	else if (beforelast(*a) == min_node)
-		rra(a, 0);
-	else
-		ra(a, 0);
+	while (*a != min_node)
+	{
+		if (beforelast(*a)->next == min_node)
+			rra(a, 0);
+		else
+			ra(a, 0);
+	}
 	pb(b, a);
 	sort4(a, b);
+	pa(a, b);
 }
 
 void	sort4_5(t_stack **a, t_stack **b)
